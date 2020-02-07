@@ -39,7 +39,7 @@ The Table of Contents below mimics the structure of the Google Earth Engine [API
 * [Masking](https://github.com/csaybar/rgee-examples/blob/master/GetStarted/08_masking.R)
 * [A complete example](https://github.com/csaybar/rgee-examples/blob/master/GetStarted/09_a_complete_example.R)
 
-### [Machine Learning](https://github.com/giswqs/earthengine-py-notebooks/tree/master/MachineLearning)
+### [Machine Learning](https://github.com/csaybar/rgee-examples/tree/master/MachineLearning)
 
 * Supervised Classification Algorithms
 * [Classification and Regression Trees (CART)](https://github.com/csaybar/rgee-examples/blob/master/MachineLearning/cart_classifier.R) | [Support Vector Machine (SVM)](https://github.com/csaybar/rgee-examples/blob/master/MachineLearning/svm_classifier.R) | [Confusion Matrix](https://github.com/csaybar/rgee-examples/blob/master/MachineLearning/confusion_matrix.R)
