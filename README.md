@@ -207,3 +207,5 @@ The Table of Contents below mimics the structure of the Google Earth Engine [API
 ### [Gena's Examples](https://github.com/giswqs/earthengine-py-notebooks/tree/master/Gena)
 
 * [Map.addLayer()](https://github.com/csaybar/rgee-examples/blob/master/Gena/map_add_features.R) | [Map.centerObject()](https://github.com/csaybar/rgee-examples/blob/master/Gena/map_center_object.R) | [Map.setCenter()](https://github.com/csaybar/rgee-examples/blob/master/Gena/map_set_center.R)
+
+---
