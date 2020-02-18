@@ -2,26 +2,26 @@ library(rgee)
 ee_Initialize()
 
 # This function gets NDVI from a Landsat 8 image.
-getNDVI <- function(image) {
+getNDVI = function(image) {
   return(image$normalizedDifference(c("B5", "B4")))
 }
 
 # This function masks cloudy pixels.
-cloudMask <- function(image) {
-  clouds <- ee$Algorithms$Landsat$simpleCloudScore(image)$select("cloud")
+cloudMask = function(image) {
+  clouds = ee$Algorithms$Landsat$simpleCloudScore(image)$select("cloud")
   return(image$updateMask(clouds$lt(10)))
 }
 
 # Load a Landsat collection, map the NDVI and cloud masking functions over it.
-collection <- ee$ImageCollection("LANDSAT/LC08/C01/T1_TOA")$
+collection = ee$ImageCollection("LANDSAT/LC08/C01/T1_TOA")$
   filterBounds(ee$Geometry$Point(c(-122.262, 37.8719)))$
   filterDate("2014-03-01", "2014-05-31")$
   map(addNDVI)$
   map(cloudMask)
 
 # Reduce the collection to the mean of each pixel and display.
-meanImage <- collection$reduce(ee$Reducer$mean())
-vizParams <- list(bands = c("B5_mean", "B4_mean", "B3_mean"), min = 0, max = 0.5)
+meanImage = collection$reduce(ee$Reducer$mean())
+vizParams = list(bands = c("B5_mean", "B4_mean", "B3_mean"), min = 0, max = 0.5)
 ee_map(
   eeobject = meanImage,
   vizparams = vizParams,
@@ -31,11 +31,11 @@ ee_map(
 )
 
 # Load a region in which to compute the mean and display it.
-counties <- ee$FeatureCollection("TIGER/2016/Counties")
-santaClara <- ee$Feature(counties$filter(
+counties = ee$FeatureCollection("TIGER/2016/Counties")
+santaClara = ee$Feature(counties$filter(
   ee$Filter$eq("NAME", "Santa Clara")
 )$first())
-center <- santaClara$
+center = santaClara$
   geometry()$
   centroid()$
   coordinates()$
@@ -49,7 +49,7 @@ ee_map(
 )
 
 # Get the mean of NDVI in the region.
-mean <- meanImage$select("nd_mean")$reduceRegion(
+mean = meanImage$select("nd_mean")$reduceRegion(
   reducer = ee$Reducer$mean(),
   geometry = santaClara$geometry(),
   scale = 30
