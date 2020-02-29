@@ -1,9 +1,9 @@
 library(rgee)
 ee_Initialize()
 
-# This function gets NDVI from a Landsat 8 image.
-getNDVI = function(image) {
-  return(image$normalizedDifference(c("B5", "B4")))
+# This function gets NDVI from Landsat 8 imagery.
+addNDVI = function(image) {
+  return(image$addBands(image$normalizedDifference(c("B5", "B4"))))
 }
 
 # This function masks cloudy pixels.
