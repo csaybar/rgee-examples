@@ -10,11 +10,12 @@ kernel = ee$Kernel$circle(radius = 1)
 # Perform an erosion followed by a dilation, display.
 opened = image$focal_min(kernel = kernel, iterations = 2)$focal_max(kernel = kernel, iterations = 2)
 
-ee_map(eeobject = image,
-       vizparams = list(min=0, max=1),
-       center = c(-122.1899, 37.5010),
-       zoom_start = 13,
-       objname = 'NIR threshold') + 
-  ee_map(eeobject = opened,
-         vizparams = list(min=0, max=1),
-         objname = 'opened')
+Map$setCenter(lon = -122.1899, lat = 37.5010)
+Map$setZoom(zoom = 13)
+
+Map$addLayer(eeObject = image,
+             visParams = list(min=0, max=1),
+             name = 'NIR threshold') + 
+  Map$addLayer(eeObject = opened,
+               visParams = list(min=0, max=1),
+               name = 'opened')

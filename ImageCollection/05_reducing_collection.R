@@ -13,22 +13,20 @@ collection = ee$ImageCollection('LANDSAT/LC08/C01/T1_TOA')$
 
 # Compute a median image and display.
 median = collection$median()
-ee_map(eeobject = median,
-       center = c(-122.3578, 37.7726),
-       vizparams = list(bands=c('B4', 'B3', 'B2'), max=0.3),
-       zoom_start = 12,
-       objname = 'median')
+Map$setCenter(lon = -122.3578, lat = 37.7726)
+Map$setZoom(zoom = 12)
+
+Map$addLayer(eeObject = median,
+             visParams = list(bands=c('B4', 'B3', 'B2'), max=0.3),
+             name = 'median')
 
 # Reduce the collection with a median reducer.
 median = collection$reduce(ee$Reducer$median())
 
 # Display the median image.
-ee_map(eeobject = median,
-       center = c(-122.3578, 37.7726),
-       vizparams = list(bands=c('B4_median', 'B3_median', 'B2_median'), max=0.3),
-       zoom_start = 12,
-       objname = 'also median')
-
+Map$addLayer(eeObject = median,
+             visParams = list(bands=c('B4_median', 'B3_median', 'B2_median'), max=0.3),
+             name = 'also median')
 
 # # This function adds a band representing the image timestamp.
 # addTime = function(image) {
@@ -49,8 +47,9 @@ trend = collection$select(list('system:time_start', 'EVI'))$
   reduce(ee$Reducer$linearFit())
 
 # Display the trend with increasing slopes in green, decreasing in red.
-ee_map(eeobject = trend,
-       center = c(-96.943, 39.436),
-       vizparams = list(bands=c('scale', 'scale', 'offset'), min=0, max=c(-100,100,10000)),
-       zoom_start = 5,
-       objname = 'EVI trend')
+Map$setCenter(lon = -96.943, lat = 39.436)
+Map$setZoom(zoom = 5)
+
+Map$addLayer(eeObject = trend,
+             visParams = list(bands=c('scale', 'scale', 'offset'), min=0, max=c(-100,100,10000)),
+             name = 'EVI trend')

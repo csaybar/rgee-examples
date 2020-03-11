@@ -31,14 +31,15 @@ cumulativeCost = cost$cumulativeCost(
 )
 
 # Display the results
-ee_map(eeobject = cover,
-       center = c(18.71, 4.2),
-       zoom_start = 9,
-       objname = 'Globcover') + 
-  ee_map(eeobject = cumulativeCost,
-         vizparams = list(min=0, max=5e4),
-         objname = 'accumulated cost') +
-  ee_map(eeobject = geometry,
-         vizparams = list(color='FF0000'),
-         objname = 'source geometry')
+Map$setCenter(lon = 18.71, lat = 4.2)
+Map$setZoom(zoom = 9)
 
+Map$addLayer(eeObject = cover,
+             visParams = list(),
+             name = 'Globcover') +
+  Map$addLayer(eeObject = cumulativeCost,
+               visParams = list(min=0, max=5e4),
+               name = 'accumulated cost') +
+  Map$addLayer(eeObject = geometry,
+               visParams = list(color='FF0000'),
+               name = 'source geometry')

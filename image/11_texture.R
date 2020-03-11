@@ -5,11 +5,12 @@ ee_Initialize()
 image = ee$Image('USDA/NAIP/DOQQ/m_3712213_sw_10_1_20140613')
 
 # Zoom to San Francisco, display.
-ee_map(eeobject = image,
-       vizparams = list(min=0, max=255),
-       center = c(-122.466123, 37.769833), # San Francisco Bay
-       zoom_start = 17,
-       objname = 'image')
+Map$setCenter(lon = -122.466123, lat = 37.769833) # San Francisco Bay
+Map$setZoom(zoom = 17)
+
+Map$addLayer(eeObject = image,
+             visParams = list(min=0, max=255),
+             name = 'image')
 
 # Get the NIR band.
 nir = image$select('N')
@@ -19,20 +20,16 @@ square = ee$Kernel$square(radius=4)
 
 # Compute entropy and display.
 entropy = nir$entropy(square)
-ee_map(eeobject = entropy,
-       vizparams = list(min=1, max=5, palette=c('0000CC', 'CC0000')),
-       center = c(-122.466123, 37.769833), # San Francisco Bay
-       zoom_start = 17,
-       objname = 'entropy')
+Map$addLayer(eeObject = entropy,
+             visParams = list(min=1, max=5, palette=c('0000CC', 'CC0000')),
+             name = 'entropy')
 
 # Compute the gray-level co-occurrence matrix (GLCM), get contrast.
 glcm = nir$glcmTexture(size=4)
 contrast = glcm$select('N_contrast')
-ee_map(eeobject = contrast,
-       vizparams = list(min=0, max=1500, palette=c('0000CC', 'CC0000')),
-       center = c(-122.466123, 37.769833), # San Francisco Bay
-       zoom_start = 17,
-       objname = 'contrast')
+Map$addLayer(eeObject = contrast,
+             visParams = list(min=0, max=1500, palette=c('0000CC', 'CC0000')),
+             name = 'contrast')
 
 # Create a list of weights for a 9x9 kernel.
 list = list(1, 1, 1, 1, 1, 1, 1, 1, 1)
@@ -49,8 +46,6 @@ neighs = nir$neighborhoodToBands(kernel)
 
 # Compute local Geary's C, a measure of spatial association.
 gearys = nir$subtract(neighs)$pow(2)$reduce(ee$Reducer$sum())$divide(9^2)
-ee_map(eeobject = gearys,
-       vizparams = list(min=20, max=2500, palette=c('0000CC', 'CC0000')),
-       center = c(-122.466123, 37.769833), # San Francisco Bay
-       zoom_start = 17,
-       objname = "Geary's C")
+Map$addLayer(eeObject = gearys,
+             visParams = list(min=20, max=2500, palette=c('0000CC', 'CC0000')),
+             name = "Geary's C")

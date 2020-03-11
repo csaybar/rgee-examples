@@ -12,8 +12,11 @@ ndwi = image$normalizedDifference(c('B3', 'B5'))
 bare = ndvi$lt(0.2)$And(ndwi$lt(0))
 
 # Mask and display the binary layer.
-ee_map(center = c(-122.3578, 37.7726),
-       zoom_start = 12,
-       bare$updateMask(bare),
-       zoom = 3,
-       objname = 'bare')
+Map$setCenter(lon = -122.3578, lat = 37.7726)
+Map$setZoom(zoom = 12)
+
+Map$addLayer(
+  eeObject = bare$updateMask(bare),
+  visParams = list(min=0, max=20),
+  name = "bare"
+)

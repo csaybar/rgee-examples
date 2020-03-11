@@ -1,5 +1,5 @@
 library(rgee)
-ee_Initialize()
+ee_Initialize(email = "ryali93@gmail.com")
 
 # Load and display an image.
 image = ee$Image('LANDSAT/LC08/C01/T1_TOA/LC08_044034_20140318')
@@ -20,14 +20,21 @@ laplacian = ee$Kernel$laplacian8(1, F)
 # Apply the edge-detection kernel.
 edgy = image$convolve(laplacian)
 
-ee_map(eeobject = image,
-       vizparams = list(bands = c('B5', 'B4', 'B3'), max = 0.5),
-       center = c(-121.9785, 37.8694),
-       zoom_start = 11,
-       objname = 'input image') + 
-  ee_map(eeobject = smooth,
-         vizparams = list(bands = c('B5', 'B4', 'B3'), max = 0.5),
-         objname = 'smoothed') +
-  ee_map(eeobject = edgy,
-         vizparams = list(bands = c('B5', 'B4', 'B3'), max = 0.5),
-         objname = 'edges')
+Map$setCenter(lon = -121.9785, lat = 37.8694)
+Map$setZoom(zoom = 11)
+
+Map$addLayer(
+  eeObject = image,
+  visParams = list(bands = c('B5', 'B4', 'B3'), max = 0.5),
+  name = "input image"
+) +
+  Map$addLayer(
+    eeObject = smooth,
+    visParams = list(bands = c('B5', 'B4', 'B3'), max = 0.5),
+    name = "smoothed"
+  ) +
+  Map$addLayer(
+    eeObject = edgy,
+    visParams = list(bands = c('B5', 'B4', 'B3'), max = 0.5),
+    name = "edges"
+  )

@@ -23,12 +23,15 @@ ndwiRGB = ndwiMasked$visualize(list(
 # Mosaic the visualization layers and display( or export).
 roi = ee$Geometry$Point(c(-122.4481, 37.7599))$buffer(20000)
 
+Map$centerObject(image$clip(roi))
 
-ee_map(image$clip(roi),
-       center = c(-122.1899, 37.5010),
-       zoom_start = 10,
-       vizparams = vizParams,
-       objname = 'Landsat 8') +
-  ee_map(ndwiMasked$clip(roi),
-         vizparams = ndwiViz,
-         objname = 'NDWI')
+Map$addLayer(
+  eeObject = image$clip(roi),
+  visParams = vizParams,
+  name = "Landsat 8"
+) +
+  Map$addLayer(
+    eeObject = ndwiMasked$clip(roi),
+    visParams = ndwiViz,
+    name = "NDWI"
+  )

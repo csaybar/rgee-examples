@@ -10,23 +10,20 @@ aoi = point$buffer(10000)
 kelvin = ee$Image('LANDSAT/LC08/C01/T1_TOA/LC08_044034_20140318')$select(list('B10'), list('kelvin'))$clip(aoi)
 
 # Display the thermal band.
-# Map.centerObject(point, 13)
-ee_map(eeobject = kelvin,
-       vizparams = list(min=288, max=305),
-       center = c(-122.1899, 37.5010),
-       zoom_start = 13,
-       objname = 'Kelvin')
+Map$setCenter(lon = -122.1899, lat = 37.5010)
+Map$setZoom(zoom = 13)
+
+Map$addLayer(eeObject = kelvin,
+             visParams = list(min=288, max=305),
+             name = 'Kelvin')
 
 # Threshold the thermal band to set hot pixels as value 1 and not as 0.
 hotspots = kelvin$gt(303)$selfMask()$rename('hotspots')
 
 # Display the thermal hotspots on the Map.
-ee_map(eeobject = hotspots,
-       vizparams = list(min=288, max=305, palette='FF0000'),
-       center = c(-122.1899, 37.5010),
-       zoom_start = 13,
-       objname = 'Hotspots')
-
+Map$addLayer(eeObject = hotspots,
+             visParams = list(min=288, max=305, palette='FF0000'),
+             name = 'Hotspots')
 
 # Uniquely label the hotspot image objects.
 objectId = hotspots$connectedComponents(
@@ -35,11 +32,9 @@ objectId = hotspots$connectedComponents(
 )
 
 # Display the uniquely ID'ed objects to the Map.
-ee_map(eeobject = objectId$randomVisualizer(),
-       center = c(-122.1899, 37.5010),
-       zoom_start = 13,
-       objname = 'Objects')
-
+Map$addLayer(eeObject = objectId$randomVisualizer(),
+             visParams = list(),
+             name = 'Objects')
 
 # Compute the number of pixels in each object defined by the "labels" band.
 objectSize = objectId$select('labels')$connectedPixelCount(
@@ -47,11 +42,9 @@ objectSize = objectId$select('labels')$connectedPixelCount(
 )
 
 # Display object pixel count to the Map.
-ee_map(eeobject = objectSize,
-       center = c(-122.1899, 37.5010),
-       zoom_start = 13,
-       objname = 'Object n pixels')
-
+Map$addLayer(eeObject = objectSize,
+             visParams = list(),
+             name = 'Object n pixels')
 
 # Get a pixel area image.
 pixelArea = ee$Image$pixelArea()
@@ -62,10 +55,9 @@ pixelArea = ee$Image$pixelArea()
 objectArea = objectSize$multiply(pixelArea)
 
 # Display object area to the Map.
-ee_map(eeobject = objectArea,
-       center = c(-122.1899, 37.5010),
-       zoom_start = 13,
-       objname = 'Object area m^2')
+Map$addLayer(eeObject = objectArea,
+             visParams = list(),
+             name = 'Object area m^2')
 
 # Threshold the `objectArea` image to define a mask that will mask out
 # objects below a given size (1 hectare in this case).
@@ -74,11 +66,9 @@ areaMask = objectArea$gte(10000)
 # Update the mask of the `objectId` layer defined previously using the
 # minimum area mask just defined.
 objectId = objectId$updateMask(areaMask)
-ee_map(eeobject = objectId,
-       center = c(-122.1899, 37.5010),
-       zoom_start = 13,
-       objname = 'Large hotspots')
-
+Map$addLayer(eeObject = objectId,
+             visParams = list(),
+             name = 'Large hotspots')
 
 # Make a suitable image for `reduceConnectedComponents()` by adding a label
 # band to the `kelvin` temperature image.
@@ -92,8 +82,6 @@ patchTemp = kelvin$reduceConnectedComponents(
 )
 
 # Display object mean temperature to the Map.
-ee_map(eeobject = patchTemp,
-       vizparams = list(min=303, max=304, palette=c('yellow', 'red')),
-       center = c(-122.1899, 37.5010),
-       zoom_start = 13,
-       objname = 'Mean temperature')
+Map$addLayer(eeObject = patchTemp,
+             visParams = list(min=303, max=304, palette=c('yellow', 'red')),
+             name = 'Mean temperature')

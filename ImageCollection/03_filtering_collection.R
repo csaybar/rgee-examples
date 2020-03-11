@@ -14,12 +14,12 @@ badComposite = ee$Algorithms$Landsat$simpleComposite(collection, 75, 3)
 goodComposite = ee$Algorithms$Landsat$simpleComposite(filtered, 75, 3)
 
 # Display the composites.
-ee_map(eeobject = badComposite,
-       center = c(25.8544, -18.08874),
-       vizparams = list(bands=c('B3', 'B2', 'B1'), gain=3.5),
-       zoom_start = 13,
-       objname = 'bad composite') +
-  ee_map(eeobject = goodComposite,
-         vizparams = list(bands=c('B3', 'B2', 'B1'), gain=3.5),
-         objname = 'good composite')
+Map$setCenter(lon = 25.8544, lat = -18.08874)
+Map$setZoom(zoom = 13)
 
+Map$addLayer(eeObject = badComposite,
+             visParams = list(bands=c('B3', 'B2', 'B1'), gain=3.5),
+             name = 'bad composite') +
+  Map$addLayer(eeObject = goodComposite,
+               visParams = list(bands=c('B3', 'B2', 'B1'), gain=3.5),
+               name = 'good composite')

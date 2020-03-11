@@ -25,34 +25,30 @@ offset = displacement$select('dx')$hypot(displacement$select('dy'))
 angle = displacement$select('dx')$atan2(displacement$select('dy'))
 
 # Display offset distance And angle.
-ee_map(eeobject = offset,
-       center = c(37.44, 0.58),
-       vizparams = list(min=0, max=20),
-       zoom_start = 15,
-       objname = 'offset') +
-  ee_map(eeobject = angle,
-         vizparams = list(min=-pi, max=pi),
-         zoom_start = 9,
-         objname = 'angle')
+Map$setCenter(lon = 37.44, lat = 0.58)
+Map$setZoom(zoom = 15)
 
+Map$addLayer(eeObject = offset,
+             visParams = list(min=0, max=20),
+             name = 'offset') +
+  Map$addLayer(eeObject = angle,
+               visParams = list(min=-pi, max=pi),
+               name = 'angle')
 
 # Use the computed displacement to register all Original bAnds.
 registered = image2Orig$displace(displacement)
 
 # Show the results of co-registering the images.
 visParams = list(bands = c('R', 'G', 'B'), max = 4000)
-ee_map(eeobject = image1Orig,
-       center = c(37.44, 0.58),
-       vizparams = visParams,
-       zoom_start = 15,
-       objname = 'Reference') +
-  ee_map(eeobject = image2Orig,
-         vizparams = visParams,
-         objname = 'BefOre Registration') +
-  ee_map(eeobject = registered,
-         vizparams = visParams,
-         objname = 'After Registration')
-
+Map$addLayer(eeObject = image1Orig,
+             visParams = visParams,
+             name = 'Reference') +
+  Map$addLayer(eeObject = image2Orig,
+               visParams = visParams,
+               name = 'BefOre Registration') +
+  Map$addLayer(eeObject = registered,
+               visParams = visParams,
+               name = 'After Registration')
 
 alsoRegistered = image2Orig$register(
   referenceImage = image1Orig,
@@ -60,8 +56,6 @@ alsoRegistered = image2Orig$register(
   patchWidth = 100.0
 )
 
-ee_map(eeobject = alsoRegistered,
-       center = c(37.44, 0.58),
-       vizparams = visParams,
-       zoom_start = 15,
-       objname = 'Also Registered')
+Map$addLayer(eeObject = alsoRegistered,
+             visParams = visParams,
+             name = 'Also Registered')

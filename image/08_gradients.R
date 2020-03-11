@@ -14,12 +14,12 @@ gradient = xyGrad$select('x')$pow(2)$add(xyGrad$select('y')$pow(2))$sqrt()
 direction = xyGrad$select('y')$atan2(xyGrad$select('x'))
 
 # Display the results.
-ee_map(eeobject = direction,
-       vizparams = list(min=-2, max=2),
-       center = c(-122.054, 37.7295),
-       zoom_start = 10,
-       objname = 'direction') +
-  ee_map(eeobject = gradient,
-         vizparams = list(min=-7, max=7),
-         objname = 'opened')
-  
+Map$setCenter(lon = -122.054, lat = 37.7295)
+Map$setZoom(zoom = 10)
+
+Map$addLayer(eeObject = direction,
+             visParams = list(min=-2, max=2),
+             name = 'direction') + 
+  Map$addLayer(eeObject = gradient,
+               visParams = list(min=-7, max=7),
+               name = 'opened')

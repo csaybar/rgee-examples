@@ -9,11 +9,12 @@ naip2004_2012 = ee$ImageCollection('USDA/NAIP/DOQQ')$
 
 # Temporally composite the images with a maximum value function.
 composite = naip2004_2012$max()
-ee_map(eeobject = composite,
-       center = c(-71.12532, 42.3712),
-       zoom_start = 12,
-       objname = 'max value composite')
+Map$setCenter(lon = -71.12532, lat = 42.3712)
+Map$setZoom(zoom = 12)
 
+Map$addLayer(eeObject = composite,
+             visParams = list(),
+             name = 'max value composite')
 
 # Load four 2012 NAIP quarter quads, different locations.
 naip2012 = ee$ImageCollection('USDA/NAIP/DOQQ')$
@@ -22,17 +23,18 @@ naip2012 = ee$ImageCollection('USDA/NAIP/DOQQ')$
 
 # Spatially mosaic the images in the collection and display.
 mosaic = naip2012$mosaic()
-ee_map(eeobject = mosaic,
-       center = c(-71.12532, 42.3712),
-       zoom_start = 12,
-       objname = 'spatial mosaic')
+Map$addLayer(eeObject = mosaic,
+             visParams = list(),
+             name = 'spatial mosaic')
 
 # Load a NAIP quarter quad, display.
 naip = ee$Image('USDA/NAIP/DOQQ/m_4207148_nw_19_1_20120710')
-ee_map(eeobject = naip,
-       center = c(-71.0915, 42.3443),
-       zoom_start = 14,
-       objname = 'NAIP DOQQ')
+Map$setCenter(lon = -71.0915, lat = 42.3443)
+Map$setZoom(zoom = 14)
+
+Map$addLayer(eeObject = naip,
+             visParams = list(),
+             name = 'NAIP DOQQ')
 
 # Create the NDVI and NDWI spectral indices.
 ndvi = naip$normalizedDifference(c('N', 'R'))
@@ -55,16 +57,14 @@ mosaic = ee$ImageCollection(list(
   # NDVI > 0.2 is vegetation.  Visualize it with a green palette.
   ndvi$updateMask(ndvi$gte(0.2))$visualize(ndviViz),
   # Visualize bare areas with shadow (bare2 but not bare1) as gray.
-  bare2$updateMask(bare2$And(bare1$Not()))$visualize(palette='AAAAAA'),
+  bare2$updateMask(bare2$And(bare1$Not()))$visualize(list(palette=c('AAAAAA'))),
   # Visualize the other bare areas as white.
-  bare1$updateMask(bare1)$visualize(palette='FFFFFF')
+  bare1$updateMask(bare1)$visualize(list(palette=c('FFFFFF')))
   ))$mosaic()
-ee_map(eeobject = mosaic,
-       center = c(-71.0915, 42.3443),
-       zoom_start = 14,
-       objname = 'Visualization mosaic')
-  
 
+Map$addLayer(eeObject = ndwi,
+             visParams = list(),
+             name = 'Visualization mosaic')
 
 # # This function masks clouds in Landsat 8 imagery.
 # maskClouds = function(image) {

@@ -36,20 +36,20 @@ dog = fat$add(skinny)
 # Compute the zero crossings of the second derivative, display.
 zeroXings = image$convolve(dog)$zeroCrossing()
 
+Map$setCenter(lon = -122.054, lat = 37.7295)
+Map$setZoom(zoom = 10)
 
-ee_map(eeobject = canny,
-       vizparams = list(min=0, max=1),
-       center = c(-122.054, 37.7295),
-       zoom_start = 10,
-       objname = 'canny') + 
-  ee_map(eeobject = hough,
-         vizparams = list(min=0, max=1),
-         objname = 'hough') +
-  ee_map(eeobject = image,
-         vizparams = list(min=0, max=12000),
-         objname = 'L_B8') +
-  ee_map(eeobject = zeroXings$updateMask(zeroXings),
-         vizparams = list(palette = 'FF000'),
-         objname = 'zero crossings')
+Map$addLayer(eeObject = canny,
+             visParams = list(min=0, max=1),
+             name = 'canny') + 
+  Map$addLayer(eeObject = hough,
+               visParams = list(min=0, max=1),
+               name = 'hough') +
+  Map$addLayer(eeObject = image,
+               visParams = list(min=0, max=12000),
+               name = 'L_B8') +
+  Map$addLayer(eeObject = zeroXings$updateMask(zeroXings),
+               visParams = list(palette = 'FF0000'),
+               name = 'zero crossings')
 
 
