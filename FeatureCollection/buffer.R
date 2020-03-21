@@ -1,15 +1,18 @@
-# Display the area within 2 kilometers of any San Francisco BART station.
 library(rgee)
+library(sf)
+# ee_reattach() # reattach ee as a reserved word
+
 ee_Initialize()
 
-bart_stations <- ee$FeatureCollection(
-  "ft:1xCCZkVn8DIkB7i7RVkvsYWxAxsdsQZ6SbD9PCXw"
-)
-buffered <- bart_stations$map(function(x) x$buffer(2000))
+sf_shp <- st_read(system.file("shape/nc.shp", package = "sf")) %>%
+  sf_as_ee()
+
+Map$addLayer(sf_shp)
+buffered <- sf_shp$map(function(x) x$buffer(2000))
 unioned <- buffered$union()
 
-ee_map(
-  eeobject = unioned,
-  vizparams = list(color = "800080"),
-  objname = "BART stations"
+Map$addLayer(
+  eeObject = unioned,
+  visParams = list(color = "800080"),
+  name = "BART stations"
 )

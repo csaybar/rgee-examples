@@ -1,4 +1,6 @@
 library(rgee)
+#ee_reattach() # reattach ee as a reserved word
+
 ee_Initialize()
 
 # Load datasets
@@ -13,4 +15,4 @@ roi2 <- HUC10$filter(
 roi3 <- roi2$randomColumn("random")
 
 cat("Random value: ", roi3$first()$get("random")$getInfo())
-reticulate::py_help(ee$Filter$contains)
+ee_help(ee$Filter$contains)

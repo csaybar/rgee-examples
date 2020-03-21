@@ -1,26 +1,34 @@
 library(rgee)
+# ee_reattach() # reattach ee as a reserved word
+
 ee_Initialize()
 
 roi <- ee$Geometry$Polygon(
   list(
-    c(-73.99891354682285, 40.74560250077625),
-    c(-73.99891354682285, 40.74053023068626),
-    c(-73.98749806525547, 40.74053023068626),
-    c(-73.98749806525547, 40.74560250077625)
+    c(-73.9989, 40.74560),
+    c(-73.9989, 40.74053),
+    c(-73.9874, 40.74053),
+    c(-73.9874, 40.74560)
   )
 )
 
 fc <- ee$FeatureCollection('TIGER/2016/Roads')$filterBounds(roi)
 clipped <- fc$map(function(x) x$intersection(roi))
 
+Map$centerObject(roi)
+Map$addLayer(eeObject = ee$FeatureCollection(roi)) +
+Map$addLayer(
+  eeObject = roi,
+  visParams = list(palette = 'yellow'),
+  name = 'ROI'
+)
 
-ee_map(eeobject = ee$FeatureCollection(roi),
-       zoom_start =  17) +
-ee_map(eeobject = ee$Image()$paint(roi, 0, 2),
-       vizparams = list(palette = 'yellow'),
-       objname = 'ROI',
-       zoom_start = 15) +
-ee_map(eeobject = ee$Image()$paint(clipped, 0, 3),
-       vizparams = list(palette = 'red'),
-       objname = 'clipped') +
-ee_map(eeobject = fc, objname = 'Census roads')
+Map$centerObject(clipped)
+Map$addLayer(
+  eeObject = clipped,
+  visParams = list(palette = 'red'),
+  name = 'clipped') +
+Map$addLayer(
+  eeObject = fc,
+  name = 'Census roads'
+)

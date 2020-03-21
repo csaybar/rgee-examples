@@ -1,4 +1,6 @@
 library(rgee)
+#ee_reattach() # reattach ee as a reserved word
+
 ee_Initialize()
 
 # This function creates a new property that is the sum of two existing properties.
