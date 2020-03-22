@@ -24,8 +24,8 @@ Map$addLayer(
   visParams = list(min = 0, max = 128, bands = c("B4", "B3", "B2")),
   name = "image"
 ) +
-  Map$addLayer(
-    eeObject = fractions,
-    visParams = list(min = 0, max = 2),
-    name = "unmixed"
-  )
+Map$addLayer(
+  eeObject = fractions,
+  visParams = list(min = 0, max = 2),
+  name = "unmixed"
+)
