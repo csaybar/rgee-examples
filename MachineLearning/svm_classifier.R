@@ -1,4 +1,6 @@
 library(rgee)
+# ee_reattach() # reattach ee as a reserved word
+
 ee_Initialize()
 
 # Input imagery is a cloud-free Landsat 8 composite.
@@ -53,14 +55,18 @@ classified = image$classify(trained)
 geoviz_image = list(bands = c("B4", "B3", "B2"), max = 0.5, gamma = 2)
 geoviz_class = list(min = 0, max = 1, palette = c("red", "green"))
 
-ee_map(
-  eeobject = image,
-  vizparams = geoviz_image,
-  center = c(-62.836, -9.2399),
-  zoom_start = 9,
-  objname = "image") +
-  ee_map(
-    eeobject = classified,
-    vizparams = geoviz_class,
-    objname = "deforestation") +
-  ee_map(polygons, objname = "training polygons")
+Map$setCenter(-62.836, -9.2399, 9)
+Map$addLayer(
+  eeObject = image,
+  visParams = geoviz_image,
+  name = "image"
+) +
+Map$addLayer(
+  eeObject = classified,
+  visParams = geoviz_class,
+  name = "deforestation"
+) +
+Map$addLayer(
+  eeObject = polygons,
+  name = "training polygons"
+)
