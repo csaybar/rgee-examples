@@ -1,26 +1,71 @@
 # rgee-examples
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-A collection of **300+** examples for using Google Earth Engine with R, based on the work of the Professor [Qiusheng Wu](https://wetlands.io). 
+A collection of **300+** examples for using Google Earth Engine with R. 
 
 ## 1. Description
 
-This repository is a collection of **300+** R script examples. It was developed by converting the repos [qgis-earthengine-examples](https://github.com/giswqs/qgis-earthengine-examples) and [earthengine-py-notebooks](https://github.com/giswqs/earthengine-py-notebooks) from Python to R. 
+This repository is a collection of **300+** R script examples. The mayority of theses examples were adapted from converting the repos [qgis-earthengine-examples](https://github.com/giswqs/qgis-earthengine-examples) and [earthengine-py-notebooks](https://github.com/giswqs/earthengine-py-notebooks) from Python to R. Recognition for organize and develop these amazing examples should always be given to the Professor [Qiusheng Wu](https://wetlands.io).
 
-## 2. Usage
+## 2. Installation
 
-* **Step 1:** Install `rgee` as follow:
-  ```r
-  remotes::install_github("csaybar/rgee")
-  ```
-* **Step 2:** Install the [Python Package dependencies](https://csaybar.github.io/rgee/articles/setup.html).
+Install the `rgee` package from GitHub is quite simple, you just have to run in your R console as follows:
 
-* **Step 3:** Copy the script in your R session!
+``` r
+remotes::install_github("csaybar/rgee")
+```
 
-## 3. Demo
+**`rgee` depends on [sf](https://github.com/r-spatial/sf)**. Therefore, it is necessary to install its external libraries, follow the installation steps specified [here](https://github.com/r-spatial/sf#installing).
 
-![rgee-video](https://user-images.githubusercontent.com/16768318/73449086-4dd2ce00-435a-11ea-80c7-77781da76c51.gif)
+#### Docker image
+    
+    docker pull csaybar/rgee
+    docker run -d -p 8787:8787 -e USER=rgee -e PASSWORD=rgee --name rgee-dev csaybar/rgee
+
+After that, in your preferred browser, run:
+
+    127.0.0.1:8787
+
+### 3. Requirements
+
+Prior to using `rgee` you will need to install a **Python version higher than 3.5** in your system. `rgee` counts with a installation module, use it to quickly set up the external dependencies of `rgee`:
+
+```r
+library(rgee)
+
+# 1. Initialize rgee with ee_Initialize(). If there is no any Python environment, miniconda
+# will be installed by default.
+ee_Initialize()
+
+# 2. Create a Python environment, e.g. ee.
+ee_create_pyenv(python_env = "ee")
+
+# 3. Find all Python environments  in the system.
+ee_discover_pyenvs()
+
+# 4. Set a Python environment (e.g. ee) and restart R to see changes. e.g
+ee_set_pyenv(
+  python_path = '/home/MY_USER_HERE/.virtualenvs/ee/bin/python',
+  python_env = 'ee'
+)
+
+# 5. Install Python package dependencies
+ee_install_python_packages()
+
+# 6. Initialize rgee again!
+ee_Initialize()
+```
+
+Additionally, use the functions below, as many times as you want, for checking user info, check sanity of credentials and  Python packages, and remove credentials.
+
+```r
+ee_check() # Check non-R dependencies
+ee_user_info() # Display credentials information
+ee_users() # Display credentials information of all users
+ee_remove_credentials() # Remove credentials of a specific user
+ee_clean_pyenv() # Remove reticulate system variables
+```
+
+Also, consider checking the [setup section](https://csaybar.github.io/rgee/articles/setup.html) for major information to customizing Python installation.
 
 
 ## 4. Examples
