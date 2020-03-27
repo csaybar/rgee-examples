@@ -62,7 +62,7 @@ Map$centerObject(image, 9)
 Map$addLayer(image, vis_params, "DEM")
 
 scale <- image$projection()$nominalScale()
-print("Resolution: ", scale$getInfo())
+cat("Resolution: ", scale$getInfo())
 
 scale <- 30
 
