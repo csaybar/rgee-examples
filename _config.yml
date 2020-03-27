@@ -1,2 +1,4 @@
-theme   : jekyll-theme-minimal
-url     : https://github.com/giswqs/earthengine-py-notebooks
+theme      : jekyll-theme-minimal
+repository : https://github.com/csaybar/rgee/examples
+logo       : https://raw.githubusercontent.com/csaybar/rgee/master/man/figures/logo.png
+
