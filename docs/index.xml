@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rgee examples</title>
+    <link>/</link>
+    <description>Recent content on rgee examples</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 Jan 2018 22:01:36 +0100</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Get Started</title>
+      <link>/3_examples/1_get_started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/3_examples/1_get_started/</guid>
+      <description> Hello world! Adding data to Map Finding images Band math Mapping (what to do instead of a for-loop) Reducing Image statistics Masking A complete example  </description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>/3_examples/2_machine_learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/3_examples/2_machine_learning/</guid>
+      <description> Supervised Classification Algorithms  Classification and Regression Trees (CART) Support Vector Machine (SVM) Confusion Matrix   Unsupervised Classification Algorithms  KMeans Clustering    </description>
+    </item>
+    
+    <item>
+      <title>Image</title>
+      <link>/3_examples/3_image/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/3_examples/3_image/</guid>
+      <description> Image Overview Image Visualization Image information and metadata Mathematical operations Relational, conditional and Boolean operations Convolutions Morphological Operations Gradients Edge detection Spectral transformations Texture Object-based methods Cumulative Cost Mapping Registering Images Miscellaneous  Band statistics (min, max, mean, std) Image statistics by band Extract value to points Rename bands Clipping Find image by path and row Get image resolution Get image extent Set image properties Select bands Convert bands to ImageCollection Reclassify Composite bands Image smoothing Download image Cell statistics Image patch area Get image id Get band name and type Filtering by calendar range    </description>
+    </item>
+    
+    <item>
+      <title>ImageCollection</title>
+      <link>/3_examples/4_imagecollection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/3_examples/4_imagecollection/</guid>
+      <description> ImageCollection Overview ImageCollection Information and Metadata Filtering an ImageCollection Mapping over an ImageCollection Reducing an ImageCollection Compositing and Mosaicking Miscellaneous  Get image centroid Convert ImageCollection to Image Sort by cloud and date Filtering by metadata Filtering by band names Select image by index Creating monthly imagery    </description>
+    </item>
+    
+    <item>
+      <title>Geometry, Feature, FeatureCollection</title>
+      <link>/3_examples/5_featurecollections/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/3_examples/5_featurecollections/</guid>
+      <description> Geometry Overview Geodesic vs. Planar Geometries Geometry Visualization and Information Geometric Operations Feature Overview FeatureCollection Overview Feature and FeatureCollection Visualization FeatureCollection Information and Metadata Filtering a FeatureCollection Mapping over a FeatureCollection Reducing a FeatureCollection Vector to Raster Interpolation Miscellaneous  Add new attribute Add area column Add random value column Single column statistics Multiple column statistics Simplify polygons Column statistics by group Select by location Select by attributes Select by strings Vector symbology Merge FeatureCollection Search by buffer distance Select columns Mimimum bounding geometry Clipping polygons    </description>
+    </item>
+    
+    <item>
+      <title>Reducer</title>
+      <link>/3_examples/6_reducer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/3_examples/6_reducer/</guid>
+      <description> Reducer Overview ImageCollection Reductions Image Reductions Statistics of an Image Region Statistics of Image Regions Statistics of Image Neighborhoods Statistics of FeatureCollection Columns Raster to Vector Conversion Vector to Raster Conversion Grouped Reductions and Zonal Statistics  Statistics by group Zonal Statistics Weighted Reductions Linear Regression    </description>
+    </item>
+    
+    <item>
+      <title>Join</title>
+      <link>/3_examples/7_join/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/3_examples/7_join/</guid>
+      <description> Simple Joins Inverted Joins Inner Joins Save-All Joins Save-Best Joins Spatial Joins  </description>
+    </item>
+    
+    <item>
+      <title>Array</title>
+      <link>/3_examples/8_array/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/3_examples/8_array/</guid>
+      <description> Arrays and Array Images Array Transformations Eigen Analysis Array Sorting and Reducing  </description>
+    </item>
+    
+    <item>
+      <title>Specialized Algorithms</title>
+      <link>/3_examples/9_specialized_algorithms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/3_examples/9_specialized_algorithms/</guid>
+      <description> Landsat Algorithms  Radiance Surface Reflectance Simple cloud score Simple composite   Sentinel-1 Algorithms Resampling and Reducing Resolution  Resampling Reducing Resolution Linear fit   Pattern recognition  Center-pivot Irrigation Detector    </description>
+    </item>
+    
+    <item>
+      <title>Asset Management</title>
+      <link>/3_examples/10_asset_management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/3_examples/10_asset_management/</guid>
+      <description> Exporting Image Exporting ImageCollection Exporting Vector Exporting FeatureCollection Exporting Table Exporting TimeSeries  </description>
+    </item>
+    
+    <item>
+      <title>How Earth Engine Works</title>
+      <link>/3_examples/11_eeworks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/3_examples/11_eeworks/</guid>
+      <description> Client vs. Server Deferred Execution Projections  </description>
+    </item>
+    
+    <item>
+      <title>Filter</title>
+      <link>/3_examples/12_filter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/3_examples/12_filter/</guid>
+      <description> Filter to metadata equal to the given value Filter to metadata not equal to the given value Filter on metadata contained in a list Filter on metadata that cotains a certain string Filter on metadata that starts with a certain string Filter on metadata that ends with a certain string Filter on metadata that falls within a specified range  </description>
+    </item>
+    
+    <item>
+      <title>Visualization</title>
+      <link>/3_examples/13_viz/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/3_examples/13_viz/</guid>
+      <description> RGB composite Color palettes Color ramp Hillshade Image stretch Image thumbnail Rendering categorical maps Styled layer descriptors Terrain visualization Visualizing FeatureCollection Visualizing Geometry NLCD Land Cover US Counties Miscellaneous  NDVI symbology NDWI symbology Landsat symbology NWI wetlands symbology Color by attribute Random color visualizer    </description>
+    </item>
+    
+    <item>
+      <title>Datasets</title>
+      <link>/3_examples/14_dataset/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/3_examples/14_dataset/</guid>
+      <description> Terrain Water Vector datasets catalog Large Scale International Boundary Polygons (LSIB) TIGER: US 2018 Census Counties TIGER: US 2018 Census States TIGER: US 2016 Census Roads TIGER: US 2010 Census Blocks TIGER: US Census 2010 Census Tracts + Demographic Profile 1 aggregate statistics TIGER: US Census 2010 5-digit ZIP Code Tabulation Areas GLIMS: Global Land Ice Measurements from Space USGS Watershed Boundary Datasets USA EPA Ecoregions RESOLVE Ecoregions World Database on Protected Areas (WDPA) WRI Global Power Plant Database Landsat WRS-2 grid  </description>
+    </item>
+    
+    <item>
+      <title>Tutorials</title>
+      <link>/3_examples/15_tutorials/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/3_examples/15_tutorials/</guid>
+      <description> Global Surface Water Keiko tips  </description>
+    </item>
+    
+    <item>
+      <title>RGEE examples</title>
+      <link>/3_examples/16_rgee/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/3_examples/16_rgee/</guid>
+      <description>COMING SOON!</description>
+    </item>
+    
+  </channel>
+</rss>

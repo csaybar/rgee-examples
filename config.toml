@@ -1,0 +1,22 @@
+baseURL = "/"
+languageCode = "en-us"
+
+title = "rgee examples"
+theme = "kraiklyn"
+
+pygmentsCodeFences = true
+pygmentsStyle = "monokailight"
+
+[params]
+sidebarColor = "blue"
+customCss = []
+
+[[menu.shortcuts]]
+name = "rgee on <b>Github</b>"
+url = "https://github.com/r-spatial/rgee"
+weight = 10
+
+[[menu.shortcuts]]
+name = "rgee <b>paper</b>"
+url = "https://github.com/r-spatial/rgee"
+weight = 20

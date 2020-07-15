@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rgee examples</title>
+    <link>/introduction/</link>
+    <description>Recent content on rgee examples</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 27 Jan 2018 15:42:17 +0100</lastBuildDate>
+    
+	<atom:link href="/introduction/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>
