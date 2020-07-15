@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://csaybar.github.io/rgee-examples/"
 languageCode = "en-us"
 
 title = "rgee examples"

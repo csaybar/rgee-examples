@@ -3,100 +3,100 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/intro/</loc>
+    <loc>/rgee-examples/intro/</loc>
     <lastmod>2018-01-27T15:42:17+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/1_rgee/</loc>
+    <loc>/rgee-examples/1_rgee/</loc>
     <lastmod>2018-01-27T15:42:17+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/2_install/</loc>
+    <loc>/rgee-examples/2_install/</loc>
     <lastmod>2018-01-27T15:42:17+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/3_examples/</loc>
+    <loc>/rgee-examples/3_examples/</loc>
     <lastmod>2018-01-28T22:01:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/3_examples/1_get_started/</loc>
+    <loc>/rgee-examples/3_examples/1_get_started/</loc>
   </url>
   
   <url>
-    <loc>/3_examples/2_machine_learning/</loc>
+    <loc>/rgee-examples/3_examples/2_machine_learning/</loc>
   </url>
   
   <url>
-    <loc>/3_examples/3_image/</loc>
+    <loc>/rgee-examples/3_examples/3_image/</loc>
   </url>
   
   <url>
-    <loc>/3_examples/4_imagecollection/</loc>
+    <loc>/rgee-examples/3_examples/4_imagecollection/</loc>
   </url>
   
   <url>
-    <loc>/3_examples/5_featurecollections/</loc>
+    <loc>/rgee-examples/3_examples/5_featurecollections/</loc>
   </url>
   
   <url>
-    <loc>/3_examples/6_reducer/</loc>
+    <loc>/rgee-examples/3_examples/6_reducer/</loc>
   </url>
   
   <url>
-    <loc>/3_examples/7_join/</loc>
+    <loc>/rgee-examples/3_examples/7_join/</loc>
   </url>
   
   <url>
-    <loc>/3_examples/8_array/</loc>
+    <loc>/rgee-examples/3_examples/8_array/</loc>
   </url>
   
   <url>
-    <loc>/3_examples/9_specialized_algorithms/</loc>
+    <loc>/rgee-examples/3_examples/9_specialized_algorithms/</loc>
   </url>
   
   <url>
-    <loc>/3_examples/10_asset_management/</loc>
+    <loc>/rgee-examples/3_examples/10_asset_management/</loc>
   </url>
   
   <url>
-    <loc>/3_examples/11_eeworks/</loc>
+    <loc>/rgee-examples/3_examples/11_eeworks/</loc>
   </url>
   
   <url>
-    <loc>/3_examples/12_filter/</loc>
+    <loc>/rgee-examples/3_examples/12_filter/</loc>
   </url>
   
   <url>
-    <loc>/3_examples/13_viz/</loc>
+    <loc>/rgee-examples/3_examples/13_viz/</loc>
   </url>
   
   <url>
-    <loc>/3_examples/14_dataset/</loc>
+    <loc>/rgee-examples/3_examples/14_dataset/</loc>
   </url>
   
   <url>
-    <loc>/3_examples/15_tutorials/</loc>
+    <loc>/rgee-examples/3_examples/15_tutorials/</loc>
   </url>
   
   <url>
-    <loc>/3_examples/16_rgee/</loc>
+    <loc>/rgee-examples/3_examples/16_rgee/</loc>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>/rgee-examples/</loc>
     <lastmod>2018-01-28T22:01:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>/rgee-examples/categories/</loc>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>/rgee-examples/tags/</loc>
   </url>
   
 </urlset>
