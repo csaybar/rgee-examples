@@ -3,7 +3,7 @@ anchor: RGEE examples
 title: RGEE examples
 weight: 65
 ---
-
+- [Install rgee](https://github.com/r-spatial/rgee/blob/examples/rgee/00_install_considerations.R)
 - [Download  EE Images](https://github.com/r-spatial/rgee/blob/examples/rgee/01_img_download.R)
 - [Download  EE ImageCollections](https://github.com/r-spatial/rgee/blob/examples/rgee/02_ic_download.R)
 - [Download  EE FeatureCollections](https://github.com/r-spatial/rgee/blob/examples/rgee/03_fc_download.R)
@@ -14,8 +14,8 @@ weight: 65
 - [Time series with rgee + gganimate](https://github.com/r-spatial/rgee/blob/examples/rgee/08_extract.R)
 - Obtain metadata about EE objects
 - [Search through collections without leaving R](https://github.com/r-spatial/rgee/blob/examples/rgee/10_search.R)
-- Demo #1: Preprocessing MODIS
+- [Demo #1: Preprocessing MODIS](https://github.com/r-spatial/rgee/blob/examples/rgee/11_pre_MODIS.R)
 - Demo #2: Preprocessing LANDSAT
 - Demo #3: Preprocessing SENTINEL2
 - Demo #4: Kriging with rgee and gstat
-- Demo #5: Object-based Image Analysis
+- [Demo #5: Object-based Image Analysis + Random Forest](https://github.com/r-spatial/rgee/blob/examples/rgee/15_obia.R)
