@@ -18,5 +18,5 @@ weight = 10
 
 [[menu.shortcuts]]
 name = "rgee <b>paper</b>"
-url = "https://github.com/r-spatial/rgee"
+url = "https://joss.theoj.org/papers/10.21105/joss.02272"
 weight = 20
