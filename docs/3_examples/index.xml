@@ -152,7 +152,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/rgee-examples/3_examples/16_rgee/</guid>
-      <description> Install rgee Download EE Images Download EE ImageCollections Download EE FeatureCollections Manage dates in EE objects Display Spatial EE objects Manage your own EE assets in a batch way Upload EE objects Time series with rgee + gganimate Obtain metadata about EE objects Search through collections without leaving R Demo #1: Preprocessing MODIS Demo #2: Preprocessing LANDSAT Demo #3: Preprocessing SENTINEL2 Demo #4: Kriging with rgee and gstat Demo #5: Object-based Image Analysis + Random Forest  </description>
+      <description> Install rgee Download EE Images Download EE ImageCollections Download EE FeatureCollections Manage dates in EE objects Display Spatial EE objects Earth Engine assets with rgee Upload EE Spatial objects Time series with rgee + gganimate Obtain metadata about EE Spatial objects Basic Search module Demo #1: Preprocessing MODIS Demo #2: Preprocessing LANDSAT Demo #3: Preprocessing SENTINEL2 Demo #4: Kriging with rgee and gstat Demo #5: Object-based Image Analysis + Random Forest Demo #6: Landsat Image Available: rgee + ggplot2 Demo #7: Create a Deep Learning dataset with rgee  </description>
     </item>
     
   </channel>
